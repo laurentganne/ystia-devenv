@@ -9,5 +9,5 @@ docker run --privileged -p 8701:22  -v $HOME/testhost_secrets/authorized_keys:/h
 It is then possible to login on the container using this command :
 ```bash
 ssh -i $HOME/testhost_secrets/id_rsa test@localhost -p 8701
-```bash
+```
 
