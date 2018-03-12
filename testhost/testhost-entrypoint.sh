@@ -9,9 +9,15 @@ if [ ! -f "/etc/ssh/ssh_host_dsa_key" ]; then
 	/usr/bin/ssh-keygen -f /etc/ssh/ssh_host_dsa_key -N '' -t dsa
 fi
 
-/bin/mkdir -p /home/test/.ssh/
-/bin/chown test:test /home/test/.ssh/*
-/bin/chmod 400 /home/test/.ssh/*
+if [ -n "$AUTH_KEY" ]; then
+    /bin/mkdir -p /root/.ssh/
+	echo "$AUTH_KEY" > /root/.ssh/authorized_keys
+	/bin/chmod 400 /root/.ssh/*
+    /bin/mkdir -p /home/test/.ssh/
+	echo "$AUTH_KEY" > /home/test/.ssh/authorized_keys
+    /bin/chown test:test /home/test/.ssh/*
+    /bin/chmod 400 /home/test/.ssh/*
+fi
 
 /usr/sbin/sshd
 dockerd-entrypoint.sh

@@ -15,6 +15,8 @@ RUN addgroup -S -g 1234 test; addgroup docker; \
     adduser -S -G test -u 1234 test -s /bin/bash; addgroup test docker
 RUN randpwd=`openssl rand -base64 8`; echo 'test:$randpwd' | chpasswd
 
+ENV AUTH_KEY ""
+
 ADD testhost-entrypoint.sh /usr/local/bin
 
 # Ports used by ssh and ystia components

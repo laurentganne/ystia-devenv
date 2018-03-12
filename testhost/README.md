@@ -5,8 +5,8 @@ Provides containers with ssh server and docker-in-docker capabilities, to be use
 For example, running this command (--privileged is required by docker-in-docker) :
 ```bash
 docker run --privileged -p 8701:22 \
--v $HOME/testhost_secrets/authorized_keys:/home/test/.ssh/authorized_keys \
---rm -d --name host1 --hostname host1 laurentg/testhost
+           -e "AUTH_KEY=$(cat $HOME/testhost_secrets/authorized_keys)" \
+           --rm -d --name host1 --hostname host1 laurentg/testhost
 ```
 It is then possible to login on the container using this command :
 ```bash
