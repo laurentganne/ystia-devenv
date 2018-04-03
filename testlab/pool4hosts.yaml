@@ -1,0 +1,67 @@
+hosts:
+- name: host1
+  connection:
+    user: test
+    private_key: /etc/yorc/testhost_secrets/id_rsa
+    host: 10.197.138.161
+    port: 8701
+  labels:
+    environment: dev
+    host.cpu_frequency: 3 GHz
+    host.disk_size: 150 GB
+    host.mem_size: 4GB
+    host.num_cpus: "8"
+    os.architecture: x86_64
+    os.distribution: ubuntu
+    os.type: linux
+    os.version: "17.1"
+- name: host2
+  connection:
+    user: test
+    private_key: /etc/yorc/testhost_secrets/id_rsa
+    host: 10.197.138.161
+    port: 8702
+  labels:
+    environment: dev
+    newlabel1: ok
+    newlabel2: ok
+    host.cpu_frequency: 3 GHz
+    host.disk_size: 50 GB
+    host.mem_size: 4GB
+    host.num_cpus: "4"
+    os.architecture: x86_64
+    os.distribution: ubuntu
+    os.type: linux
+    os.version: "17.1"
+- name: host3
+  connection:
+    user: test
+    private_key: /etc/yorc/testhost_secrets/id_rsa
+    host: 10.197.138.161
+    port: 8703
+  labels:
+    environment: dev
+    host.cpu_frequency: 3 GHz
+    host.disk_size: 50 GB
+    host.mem_size: 4GB
+    host.num_cpus: "4"
+    os.architecture: x86_64
+    os.distribution: ubuntu
+    os.type: linux
+    os.version: "17.1"
+- name: host4
+  connection:
+    user: test
+    private_key: /etc/yorc/testhost_secrets/id_rsa
+    host: 10.197.138.161
+    port: 8704
+  labels:
+    environment: dev
+    host.cpu_frequency: 3 GHz
+    host.disk_size: 50 GB
+    host.mem_size: 4GB
+    host.num_cpus: "4"
+    os.architecture: x86_64
+    os.distribution: ubuntu
+    os.type: linux
+    os.version: "17.1"
