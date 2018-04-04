@@ -19,6 +19,15 @@ if [ -n "$AUTH_KEY" ]; then
     /bin/chmod 400 /home/test/.ssh/*
 fi
 
+if [ -n "$HTTP_PROXY" ]; then
+    echo "HTTP_PROXY=$HTTP_PROXY" >> /etc/environment
+    echo "http_proxy=$HTTP_PROXY" >> /etc/environment
+fi
+if [ -n "$HTTPS_PROXY" ]; then
+    echo "HTTPS_PROXY=$HTTPS_PROXY" >> /etc/environment
+    echo "https_proxy=$HTTPS_PROXY" >> /etc/environment
+fi
+
 # /usr/sbin/sshd
 echo "LOLO arg $@"
 exec "$@"

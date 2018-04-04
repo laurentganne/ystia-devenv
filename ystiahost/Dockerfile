@@ -4,7 +4,10 @@ RUN apt-get update && \
     apt-get install -y \
             sudo \
             openssh-server \
-            openssl
+            openssl \
+            python2.7 \
+            python-pip \
+            vim
 RUN mkdir /var/run/sshd
 
 
@@ -27,7 +30,7 @@ ENV AUTH_KEY ""
 ADD testhost-entrypoint.sh /usr/local/bin
 
 # Ports used by ssh and ystia components
-EXPOSE 22 80 8080 8088 8800 8500 
+EXPOSE 22 80 8080 8088 8111 8800 8500 
 
 ENTRYPOINT ["testhost-entrypoint.sh"]
 CMD ["/usr/sbin/sshd", "-D"]
