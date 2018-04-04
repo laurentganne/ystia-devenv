@@ -86,7 +86,7 @@ do
 	
     if [ "$depID" == "Not found" ]
     then
-        echo "Exiting on error find a deployment in progress"
+        echo "Exiting on error finding a deployment in progress"
         exit 1
     fi
 
