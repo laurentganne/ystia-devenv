@@ -8,17 +8,18 @@
 # - zip file of an archive t deploy/undeploy
 
 usage() {
-    echo "deployloop <number of loops> <deployment zip>"
+    echo "deployloop <number of loops> <deployment name prefix> <deployment zip>"
     exit 1
 }
 
-if [ $# -ne 2 ]
+if [ $# -ne 3 ]
 then
     usage
 fi
 
 nbLoops=$1
-zipFile=$2
+depName=$2
+zipFile=$3
 
 # waitForDeploymentStatus waits for a given deployment to reach a given
 # deployment status.
@@ -80,13 +81,13 @@ nbDep=0
 while [ $nbDep -lt $nbLoops ]
 do
     echo "Deployment $nbDep ..."
-    yorc d deploy $zipFile
+    yorc d deploy --id $depName$nbDep $zipFile
 
     depID=`getDeploymentIdForStatus "DEPLOYMENT_IN_PROGRESS"`
 	
     if [ "$depID" == "Not found" ]
     then
-        echo "Exiting on error finding a deployment in progress"
+        echo "Exiting on error find a deployment in progress"
         exit 1
     fi
 
