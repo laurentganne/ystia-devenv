@@ -2,11 +2,14 @@ FROM ubuntu:16.04
 
 RUN apt-get update && \
     apt-get install -y \
+            dnsutils \
+            iputils-ping \
             sudo \
             openssh-server \
             openssl \
             python2.7 \
             python-pip \
+            unzip \
             vim
 RUN mkdir /var/run/sshd
 
@@ -30,7 +33,7 @@ ENV AUTH_KEY ""
 ADD testhost-entrypoint.sh /usr/local/bin
 
 # Ports used by ssh and ystia components
-EXPOSE 22 80 8080 8088 8111 8800 8500 
+EXPOSE 22 80 8080 8088 8111 8800 8500 8600
 
 ENTRYPOINT ["testhost-entrypoint.sh"]
 CMD ["/usr/sbin/sshd", "-D"]
