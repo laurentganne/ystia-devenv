@@ -32,7 +32,7 @@ docker run -p 8701:22 \
            --net dockernet0 --ip 192.168.2.11 \
            --rm -d --name host1 --hostname host1 laurentg/ystiahost
 ```
-So that within each of this ystia host container, you could connect doing :
+So that within each of these ystia host containers, you could connect doing :
 ```bash
 ssh -i /path_to_secrets/id_rsa test@host1
 ```
