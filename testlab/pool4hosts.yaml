@@ -3,8 +3,7 @@ hosts:
   connection:
     user: test
     private_key: /etc/yorc/testhost_secrets/id_rsa
-    host: 10.197.138.161
-    port: 8701
+    host: 192.168.2.11
   labels:
     environment: dev
     host.cpu_frequency: 3 GHz
@@ -19,8 +18,7 @@ hosts:
   connection:
     user: test
     private_key: /etc/yorc/testhost_secrets/id_rsa
-    host: 10.197.138.161
-    port: 8702
+    host: 192.168.2.12
   labels:
     environment: dev
     newlabel1: ok
@@ -37,8 +35,7 @@ hosts:
   connection:
     user: test
     private_key: /etc/yorc/testhost_secrets/id_rsa
-    host: 10.197.138.161
-    port: 8703
+    host: 192.168.2.13
   labels:
     environment: dev
     host.cpu_frequency: 3 GHz
@@ -53,8 +50,7 @@ hosts:
   connection:
     user: test
     private_key: /etc/yorc/testhost_secrets/id_rsa
-    host: 10.197.138.161
-    port: 8704
+    host: 192.168.2.14
   labels:
     environment: dev
     host.cpu_frequency: 3 GHz
