@@ -20,3 +20,20 @@ It is then possible to login on the container using this command :
 ssh -i $HOME/testhost_secrets/id_rsa test@localhost -p 8701
 ```
 
+Or you can create a docker network :
+```bash
+docker network create --driver=bridge --subnet=192.168.2.0/24 dockernet0
+```
+and then assign IP addresses to each test host on this subnet :
+```bash
+docker run -p 8701:22 \
+           -e "AUTH_KEY=$(cat $HOME/testhost_secrets/authorized_keys)" \
+           --env-file devenv.sh \
+           --net dockernet0 --ip 192.168.2.11 \
+           --rm -d --name host1 --hostname host1 laurentg/ystiahost
+```
+So that within each of this ystia host container, you could connect doing :
+```bash
+ssh -i /path_to_secrets/id_rsa test@host1
+```
+
