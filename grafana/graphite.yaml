@@ -5,7 +5,7 @@ datasources:
   - name: Graphite
     type: graphite
     # <string, required> access mode. direct or proxy. Required
-    access: direct
+    access: proxy
     orgId: 1
     url: GRAPHITE_URL
     basicAuth: true
@@ -13,8 +13,9 @@ datasources:
     basicAuthPassword: guest
     isDefault: true
     # <map> fields that will be converted to json and stored in json_data
-#   jsonData:
-#      graphiteVersion: "1.0"
+    jsonData:
+       graphiteVersion: "1.0"
+       tlsSkipVerify: true
 #      tlsAuth: true
 #      tlsAuthWithCACert: true
 #   # <string> json object of data that will be encrypted.
@@ -24,5 +25,5 @@ datasources:
 #     tlsClientKey: "..."
     version: 1
 #   # <bool> allow users to edit datasources from the UI.
-#   editable: false
+    editable: true
 
